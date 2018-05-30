@@ -633,6 +633,13 @@ func (ftp *FTP) List(path string) (files []string, err error) {
 		if line, err = ftp.receiveNoDiscard(); err != nil {
 			return
 		}
+
+		if !strings.HasPrefix(line, StatusFileOK) &&
+			!strings.HasPrefix(line, StatusConnectionAlreadyOpen) {
+			// Really list is not working here
+			err = errors.New(line)
+			return
+		}
 	}
 
 	reader := bufio.NewReader(pconn)

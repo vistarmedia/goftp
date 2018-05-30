@@ -2,6 +2,7 @@ package goftp
 
 // FTP Status codes, defined in RFC 959
 const (
+	StatusConnectionAlreadyOpen = "125"
 	StatusFileOK                = "150"
 	StatusOK                    = "200"
 	StatusSystemStatus          = "211"
@@ -16,6 +17,7 @@ const (
 )
 
 var statusText = map[string]string{
+	StatusConnectionAlreadyOpen: "Data connection already open; Transfer starting.",
 	StatusFileOK:                "File status okay; about to open data connection",
 	StatusOK:                    "Command okay",
 	StatusSystemStatus:          "System status, or system help reply",

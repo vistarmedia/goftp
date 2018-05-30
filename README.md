@@ -6,7 +6,7 @@ Golang FTP library with Walk support.
 ## Features
 
 * AUTH TLS support
-* Walk 
+* Walk
 
 ## Sample
 ```go
